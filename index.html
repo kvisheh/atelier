@@ -29,7 +29,7 @@ document.getElementById('editOverlay').addEventListener('click',e=>{if(e.target.
 </script><style>
 #slip{position:relative;isolation:isolate;background:#fff;color:#20344b}
 #slip::before{content:"VISHEH-BAGHFERDOWS";position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-35deg);font-family:Arial,sans-serif;font-weight:700;font-size:clamp(24px,5vw,64px);letter-spacing:2px;color:rgba(35,66,105,.075);white-space:nowrap;pointer-events:none;z-index:-1}
-@media print{@page{size:A4 portrait;margin:15mm}#slip{display:block!important;box-sizing:border-box;min-height:255mm;padding:18mm!important;background:#fff!important;color:#20344b!important}#slip::before{position:fixed;left:50%;top:50%;font-size:38pt;color:rgba(35,66,105,.075)!important;z-index:0!important}#slip>*{position:relative;z-index:1}#slip h1{font-size:24pt;margin:0 0 12mm}#slip h2{font-size:17pt}#slip p{font-size:12pt;line-height:2.1}#slip img{max-height:70mm!important}body{background:#fff}}
+@media print{@page{size:A4 landscape;margin:15mm}#slip{display:block!important;box-sizing:border-box;min-height:255mm;padding:18mm!important;background:#fff!important;color:#20344b!important}#slip::before{position:fixed;left:50%;top:50%;font-size:38pt;color:rgba(35,66,105,.075)!important;z-index:0!important}#slip>*{position:relative;z-index:1}#slip h1{font-size:24pt;margin:0 0 12mm}#slip h2{font-size:17pt}#slip p{font-size:12pt;line-height:2.1}#slip img{max-height:70mm!important}body{background:#fff}}
 </style><script>
 function rememberReason(v){v=String(v||'').trim();if(!v)return;try{let arr=JSON.parse(localStorage.getItem('visheh-reason-suggestions')||'[]');if(!arr.includes(v)){arr.push(v);localStorage.setItem('visheh-reason-suggestions',JSON.stringify(arr))}refreshReasons()}catch(e){}}
 function refreshReasons(){let arr=[];try{arr=JSON.parse(localStorage.getItem('visheh-reason-suggestions')||'[]')}catch(e){};let d=document.getElementById('reasonSuggestions');d.replaceChildren();arr.forEach(v=>{let o=document.createElement('option');o.value=v;d.appendChild(o)})}
@@ -38,18 +38,18 @@ db.payments.forEach(p=>{if(p.reason)rememberReason(p.reason)});refreshReasons();
 <style>
 #slip{padding:0!important;margin:0!important;background:#fff!important;isolation:auto!important}
 #slip::before{display:none!important}
-.receiptSheet{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,1fr);width:210mm;height:297mm;box-sizing:border-box;direction:rtl}
+.receiptSheet{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,1fr);width:297mm;height:210mm;box-sizing:border-box;direction:rtl}
 .receiptCell{position:relative;overflow:hidden;box-sizing:border-box;border:0.25mm dashed #ccd6e3;padding:4mm 3mm;background:white;min-width:0;min-height:0}
 .receiptWatermark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-35deg);font:700 11.5pt Arial,sans-serif;letter-spacing:0;color:rgba(35,66,105,.075);white-space:nowrap;pointer-events:none;z-index:0}
 .receiptText{position:relative;z-index:1;font-size:8pt;line-height:1.7;overflow-wrap:anywhere}
 .receiptText h3{font-size:11pt;margin:0 0 2mm;border-bottom:1px solid #cdd9e6;padding-bottom:2mm}
 .receiptAmount{font-weight:bold;font-size:9pt;margin:1mm 0}
 @media print{
-@page{size:A4 portrait;margin:0}
+@page{size:A4 landscape;margin:0}
 html,body{margin:0!important;padding:0!important;background:white!important}
-#slip{display:block!important;width:210mm!important;height:297mm!important;min-height:0!important;padding:0!important;margin:0!important}
-.receiptSheet{width:210mm!important;height:297mm!important;page-break-inside:avoid;break-inside:avoid}
-.receiptCell{height:99mm!important;width:70mm!important;break-inside:avoid}
+#slip{display:block!important;width:297mm!important;height:210mm!important;min-height:0!important;padding:0!important;margin:0!important}
+.receiptSheet{width:297mm!important;height:210mm!important;page-break-inside:avoid;break-inside:avoid}
+.receiptCell{height:70mm!important;width:99mm!important;break-inside:avoid}
 .receiptWatermark{font-size:11.5pt!important;color:rgba(35,66,105,.075)!important}
 .receiptText{font-size:8pt!important;line-height:1.7!important}
 .receiptText h3{font-size:11pt!important;margin:0 0 2mm!important}
