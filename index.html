@@ -39,19 +39,19 @@ db.payments.forEach(p=>{if(p.reason)rememberReason(p.reason)});refreshReasons();
 #slip{padding:0!important;margin:0!important;background:#fff!important;isolation:auto!important}
 #slip::before{display:none!important}
 .receiptSheet{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,1fr);width:210mm;height:297mm;box-sizing:border-box;direction:rtl}
-.receiptCell{position:relative;overflow:hidden;box-sizing:border-box;border:0.25mm dashed #ccd6e3;padding:4mm 3mm;background:white;min-width:0;min-height:0}
-.receiptWatermark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-35deg);font:700 11.5pt Arial,sans-serif;letter-spacing:0;color:rgba(35,66,105,.075);white-space:nowrap;pointer-events:none;z-index:0}
-.receiptText{position:relative;z-index:1;font-size:8pt;line-height:1.7;overflow-wrap:anywhere}
-.receiptText h3{font-size:11pt;margin:0 0 2mm;border-bottom:1px solid #cdd9e6;padding-bottom:2mm}
-.receiptAmount{font-weight:bold;font-size:9pt;margin:1mm 0}
+.receiptCell{position:relative;overflow:hidden;box-sizing:border-box;border:0.25mm dashed #ccd6e3;padding:5mm 4mm;background:white;min-width:0;min-height:0}
+.receiptWatermark{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-53deg);font:700 19pt Arial,sans-serif;letter-spacing:-.7pt;color:rgba(35,66,105,.075);white-space:nowrap;pointer-events:none;z-index:0}
+.receiptText{position:relative;z-index:1;font-size:12pt;line-height:2.05;overflow-wrap:anywhere}
+.receiptText h3{font-size:15pt;margin:0 0 3mm;border-bottom:1px solid #cdd9e6;padding-bottom:3mm}
+.receiptAmount{font-weight:bold;font-size:13pt;margin:2mm 0}
 @page { size: 210mm 297mm; margin: 0; }
 @media print{
 html,body{margin:0!important;padding:0!important;background:white!important;width:210mm!important;min-width:210mm!important;max-width:210mm!important;overflow:visible!important}
 #slip{display:block!important;width:210mm!important;height:297mm!important;min-height:0!important;max-width:210mm!important;padding:0!important;margin:0!important;overflow:hidden!important;position:absolute!important;top:0!important;left:0!important;right:auto!important}
 .receiptSheet{width:210mm!important;height:297mm!important;page-break-inside:avoid;break-inside:avoid}
 .receiptCell{height:99mm!important;width:70mm!important;break-inside:avoid}
-.receiptWatermark{font-size:11.5pt!important;color:rgba(35,66,105,.075)!important}
-.receiptText{font-size:8pt!important;line-height:1.7!important}
-.receiptText h3{font-size:11pt!important;margin:0 0 2mm!important}
+.receiptWatermark{font-size:19pt!important;color:rgba(35,66,105,.075)!important}
+.receiptText{font-size:12pt!important;line-height:2.05!important}
+.receiptText h3{font-size:15pt!important;margin:0 0 3mm!important}.receiptAmount{font-size:13pt!important;margin:2mm 0!important}
 }
 </style></html>
