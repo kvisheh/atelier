@@ -4,7 +4,7 @@ function assignCategoryCode(name){db.categoryCodes=db.categoryCodes||{};if(db.ca
 function paymentCategoryCode(x){return x.categoryCode||codeForCategory(x.category)}
 const receiptNum=x=>Number.isInteger(Number(x.receiptNo))&&Number(x.receiptNo)>=1?String(x.receiptNo).padStart(4,'0'):'—';const fmt=x=>Number(x||0).toLocaleString('fa-IR'),esc=x=>String(x??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));let undoHistory=[],lastSavedState=JSON.stringify(db),remoteVersion=null,saveBusy=false,authorized=false;
 const supa=window.supabase.createClient('https://yoqwqwukaxiqxvwxosew.supabase.co','sb_publishable_R6XaE0swFKRNArhHi-V2hw_f7x-SDsl',{auth:{persistSession:true,autoRefreshToken:true}});
-const SESSION_LIMIT=480000,SESSION_KEY='atelier-session-start';
+const SESSION_LIMIT=3600000,SESSION_KEY='atelier-session-start';
 let expiryTimer;
 function sessionActive(){const start=Number(localStorage.getItem(SESSION_KEY));return start>0&&Date.now()-start<SESSION_LIMIT}
 async function enforceSession(){if(sessionActive())return true;clearTimeout(expiryTimer);localStorage.removeItem(SESSION_KEY);authorized=false;document.body.classList.remove('unlocked');db={project:'باغ فردوس',funds:[],payments:[],trash:[]};gate('نشست ۸ دقیقه‌ای پایان یافت؛ دوباره وارد شوید');await supa.auth.signOut();return false}
